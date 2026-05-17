@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Moon, Sun, Download, Github, ExternalLink } from 'lucide-react';
+import { Moon, Sun, Download, Github, ExternalLink, Mail } from 'lucide-react';
 
 function App() {
   const { t, i18n } = useTranslation();
@@ -22,28 +22,32 @@ function App() {
     {
       id: 1,
       name: "DSE ME (SheCanCode)",
-      desc: "A significant project developed during the SheCanCode bootcamp.",
+      desc: "A comprehensive project showcasing full-stack capabilities, developed during the intensive SheCanCode bootcamp.",
       url: "https://github.com/Nicole0509"
     },
     {
       id: 2,
-      name: "java-simple-calculator",
-      desc: "A functional command-line calculator built with Java.",
+      name: "Java Simple Calculator",
+      desc: "A functional, well-structured command-line calculator demonstrating core Object-Oriented Programming principles in Java.",
       url: "https://github.com/Nicole0509/java-simple-calculator"
     },
     {
       id: 3,
-      name: "java-shecancode-week2-assignments",
-      desc: "Core algorithms and assignments for week 2 of the bootcamp.",
+      name: "Java Week 2 Assignments",
+      desc: "A collection of algorithmic challenges and data structure implementations from the SheCanCode curriculum.",
       url: "https://github.com/Nicole0509/java-shecancode-week2-assignments"
     }
   ];
 
   return (
-    <>
+    <div className="animate-fade-in">
+      {/* Background ambient glowing shapes */}
+      <div className="bg-glow-1"></div>
+      <div className="bg-glow-2"></div>
+
       <nav className="navbar">
         <div className="container">
-          <div style={{ fontWeight: 'bold', fontSize: '1.5rem', color: 'var(--accent-1)' }}>Nicole.</div>
+          <div className="logo">Nicole<span>.</span></div>
           <div className="nav-links">
             <a href="#home">{t('nav.home')}</a>
             <a href="#about">{t('nav.about')}</a>
@@ -51,9 +55,9 @@ function App() {
           </div>
           <div className="nav-controls">
             <select 
+              className="lang-select"
               onChange={changeLanguage} 
               defaultValue={i18n.language}
-              style={{ padding: '0.5rem', borderRadius: '8px', border: '1px solid var(--border-color)', background: 'var(--card-bg)', color: 'var(--text-color)' }}
             >
               <option value="en">EN</option>
               <option value="fr">FR</option>
@@ -68,23 +72,43 @@ function App() {
 
       <section id="home" className="hero">
         <div className="container">
-          <h2 style={{ marginBottom: '1rem', fontSize: '2rem' }}>{t('hero.greeting')}</h2>
+          <h2 style={{ marginBottom: '0.5rem', fontSize: '1.5rem', color: 'var(--text-color)' }}>{t('hero.greeting')}</h2>
           <h1>Nicole0509</h1>
-          <h2 style={{ fontSize: '2rem', color: 'var(--accent-2)', marginTop: '1rem' }}>{t('hero.role')}</h2>
+          <div className="hero-subtitle">{t('hero.role')}</div>
           <p>{t('hero.desc')}</p>
-          <a href="#projects" className="btn btn-primary">{t('hero.cta')}</a>
+          <div className="hero-actions">
+            <a href="#projects" className="btn btn-primary">
+              {t('hero.cta')}
+            </a>
+            <a href="#about" className="btn btn-secondary">
+              {t('nav.about')}
+            </a>
+          </div>
         </div>
       </section>
 
-      <section id="about" style={{ backgroundColor: 'var(--card-bg)' }}>
+      <section id="about">
         <div className="container">
           <h2>{t('about.title')}</h2>
-          <div className="about-content">
-            <p>{t('about.desc')}</p>
-            <a href="/cv.pdf" download className="btn btn-secondary">
-              <Download size={20} />
-              {t('about.cv')}
-            </a>
+          <div className="about-wrapper">
+            <div className="about-image">
+              <div className="about-image-inner">
+                N.
+              </div>
+            </div>
+            <div className="about-content">
+              <p>{t('about.desc')}</p>
+              <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+                <a href="/cv.pdf" download className="btn btn-primary">
+                  <Download size={20} />
+                  {t('about.cv')}
+                </a>
+                <a href="mailto:niashavril0509@gmail.com" className="btn btn-secondary">
+                  <Mail size={20} />
+                  Contact Me
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -114,7 +138,7 @@ function App() {
           <p>{t('footer.text')}</p>
         </div>
       </footer>
-    </>
+    </div>
   );
 }
 
