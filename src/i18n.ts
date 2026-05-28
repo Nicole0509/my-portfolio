@@ -1,7 +1,7 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
-const resources = {
+export const defaultResources = {
   en: {
     translation: {
       "nav.home": "Home",
@@ -148,7 +148,7 @@ const resources = {
 i18n
   .use(initReactI18next)
   .init({
-    resources,
+    resources: defaultResources,
     lng: "en", // default language
     fallbackLng: "en",
     interpolation: {

@@ -2,8 +2,8 @@
   --bg-color: #f8fafc;
   --text-color: #0f172a;
   --text-muted: #64748b;
-  --accent-1: #FF6B6B; /* Vibrant Coral */
-  --accent-2: #4ECDC4; /* Electric Cyan */
+  --accent-1: #4f46e5; /* Indigo */
+  --accent-2: #0d9488; /* Teal */
   --nav-bg: rgba(248, 250, 252, 0.7);
   --card-bg: rgba(255, 255, 255, 0.6);
   --border-color: rgba(203, 213, 225, 0.4);
@@ -14,8 +14,8 @@
   --bg-color: #0f172a;
   --text-color: #f8fafc;
   --text-muted: #94a3b8;
-  --accent-1: #FF8787; /* Light Coral */
-  --accent-2: #68D8D6; /* Light Cyan */
+  --accent-1: #6366f1; /* Lighter Indigo */
+  --accent-2: #14b8a6; /* Lighter Teal */
   --nav-bg: rgba(15, 23, 42, 0.7);
   --card-bg: rgba(30, 41, 59, 0.6);
   --border-color: rgba(51, 65, 85, 0.4);
@@ -384,6 +384,7 @@ section {
 /* Doodle background wrapper */
 .hero-image-wrapper {
   position: relative;
+  z-index: 1; /* Creates stacking context so doodle-blob stays behind image but above background */
   width: 100%;
   max-width: 500px;
   margin: 0 auto;
@@ -398,14 +399,14 @@ section {
   width: 140%;
   height: 140%;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 107, 107, 0.25) 0%, rgba(78, 205, 196, 0.15) 45%, transparent 70%);
+  background: radial-gradient(circle, rgba(79, 70, 229, 0.25) 0%, rgba(13, 148, 136, 0.15) 45%, transparent 70%);
   filter: blur(25px);
   z-index: -1;
   animation: pulseBlob 8s infinite alternate ease-in-out;
 }
 
 [data-theme='dark'] .doodle-blob {
-  background: radial-gradient(circle, rgba(255, 135, 135, 0.25) 0%, rgba(104, 216, 214, 0.15) 45%, transparent 70%);
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.25) 0%, rgba(20, 184, 166, 0.15) 45%, transparent 70%);
 }
 
 @keyframes pulseBlob {
